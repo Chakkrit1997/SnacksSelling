@@ -2,7 +2,7 @@
 include 'db.php';
 session_start();
 if ($_SESSION["status"] !== "admin") {
-  header("Location: user_login_page.php");
+    header("Location: user_login_page.php");
 }
 ?>
 
@@ -106,10 +106,14 @@ if ($_SESSION["status"] !== "admin") {
 
                     echo "<td>" . $res['category'] . "</td>";
                     echo "<td>" . $res['supplier'] . "</td>";
-                    echo '<td class="text-center">
-                            <a class="btn btn-outline-warning shadow-sm btn-md mb-2" href="product_update.php?prod_id='.$res['prod_id'].'" class="btn" >Edit</a>
-                            <a class="btn btn-outline-danger shadow-sm btn-md" href="product_delete.php?prod_id='.$res['prod_id'].'" class="btn" >Delete</a>
-                        </tr>';
+                    // echo '<td class="text-center">
+                    //         <a class="btn btn-outline-warning shadow-sm btn-md mb-2" href="product_update.php?prod_id='.$res['prod_id'].'" class="btn" >Edit</a>
+                    //         <a class="btn btn-outline-danger shadow-sm btn-md" href="product_delete.php?prod_id='.$res['prod_id'].'" >Delete</a>
+                    //     </tr>';
+                    echo "<td class=\"text-center\">
+                            <a class=\"btn btn-outline-warning shadow-sm btn-md mb-2\" href=\"product_update.php?prod_id=$res[prod_id]\" >Edit</a>
+                            <a class=\"btn btn-outline-danger shadow-sm btn-md\" href=\"product_delete.php?prod_id=$res[prod_id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a>
+                        </tr>";
                 }
             } ?>
         </table>

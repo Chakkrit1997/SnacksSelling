@@ -89,8 +89,6 @@ if ($_SESSION["status"] !== "admin") {
 
                         $date = date("Y-m-d H:i:s");
 
-                        
-
                         $query = mysqli_query($dbcon, "SELECT prod_name FROM products WHERE prod_id='$prod_name'") or die(mysqli_error($dbcon));
 
                         $row = mysqli_fetch_array($query);

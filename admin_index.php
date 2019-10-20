@@ -104,17 +104,18 @@ if ($_SESSION["status"] !== "admin") {
     <div class="container">
       <nav>
         <ul>
-          <li>Brought To You By <a href="https://code-projects.org/">code-projects</a> | Thanks to Billy Revellame</li>
+          <li></li>
         </ul>
       </nav>
       <div class="copyright">
         &copy;
         <script>
-          document.write(new Date().getFullYear())
+          document.write(new Date())
         </script>, Designed and Coded by Serve(8) Web Solutions, Inc.
       </div>
     </div>
   </footer>
+
   </div>
 
 </body>
