@@ -1,6 +1,8 @@
 <?php
 include 'db.php';
-
+if ($_SESSION["status"] == "admin") {
+  header("Location: admin_index.php");
+}
 ?>
 
 <!DOCTYPE html>
