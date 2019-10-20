@@ -13,7 +13,7 @@ if ($_SESSION["status"] !== "user") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Admin</title>
+  <title>Welcome to Snacks Selling</title>
 
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -33,10 +33,10 @@ if ($_SESSION["status"] !== "user") {
   <div class="container">
     <ul class="nav justify-content-center mt-5">
       <li>
-        <input type="button" class="btn btn-outline-success float-right mx-3 btn-sm" value="Product" onclick="window.location.href='admin_index.php'">
+        <input type="button" class="btn btn-outline-success float-right mx-3 btn-sm" value="Product" onclick="window.location.href='user_index.php'">
       </li>
       <li>
-        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="Product Info" onclick="window.location.href='admin_productinfo.php'">
+        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="Cart" onclick="window.location.href='user_cart.php'">
       </li>
       <li>
         <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="User Order Detail" onclick="window.location.href='admin_order_detail.php'">

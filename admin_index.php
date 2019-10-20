@@ -33,7 +33,7 @@ if ($_SESSION["status"] !== "admin") {
   <div class="container">
     <ul class="nav justify-content-center mt-5">
       <li>
-        <input type="button" class="btn btn-outline-success float-right mx-3 btn-sm" value="Product" onclick="window.location.href='admin_index.php'">
+        <input type="button" class="btn btn-outline-success mx-3 btn-sm" value="Product" onclick="window.location.href='admin_index.php'">
       </li>
       <li>
         <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="Product Info" onclick="window.location.href='admin_productinfo.php'">
@@ -41,12 +41,14 @@ if ($_SESSION["status"] !== "admin") {
       <li>
         <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="User Order Detail" onclick="window.location.href='admin_order_detail.php'">
       </li>
+      <li>
+        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="Admin Logs Information" onclick="window.location.href='admin_log.php'">
+      </li>
+
       <li class="nav-item">
         <input type="button" class="btn btn-outline-danger float-right mx-3 btn-sm" value="Logout" onclick="window.location.href='logout.php'">
       </li>
     </ul>
-
-
   </div>
 
   <br>

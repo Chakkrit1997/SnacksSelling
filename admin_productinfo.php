@@ -1,6 +1,9 @@
 <?php
 include 'db.php';
-
+session_start();
+if ($_SESSION["status"] !== "admin") {
+  header("Location: user_login_page.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +33,7 @@ include 'db.php';
     <div class="container">
         <ul class="nav justify-content-center mt-5">
             <li>
-                <input type="button" class="btn btn-outline-success float-right mx-3 btn-sm" value="Product" onclick="window.location.href='admin_index.php'">
+                <input type="button" class="btn btn-outline-success mx-3 btn-sm" value="Product" onclick="window.location.href='admin_index.php'">
             </li>
             <li>
                 <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="Product Info" onclick="window.location.href='admin_productinfo.php'">
@@ -38,6 +41,10 @@ include 'db.php';
             <li>
                 <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="User Order Detail" onclick="window.location.href='admin_order_detail.php'">
             </li>
+            <li>
+                <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="Admin Logs Information" onclick="window.location.href='admin_log.php'">
+            </li>
+
             <li class="nav-item">
                 <input type="button" class="btn btn-outline-danger float-right mx-3 btn-sm" value="Logout" onclick="window.location.href='logout.php'">
             </li>
@@ -65,7 +72,7 @@ include 'db.php';
         <br>
         <table id="" class="table table-condensed table-striped">
             <tr>
-                <th>Serial</th>
+                <th>Product ID</th>
                 <th>Product Name</th>
                 <th>Description</th>
                 <th>Cost(Php)</th>
@@ -79,7 +86,7 @@ include 'db.php';
             if ($result) {
                 while ($res = mysqli_fetch_array($result)) {
                     echo "<tr>";
-                    echo "<td>" . $res['prod_serial'] . "</td>";
+                    echo "<td>" . $res['prod_id'] . "</td>";
                     echo "<td>" . $res['prod_name'] . "</td>";
                     echo "<td>" . $res['prod_desc'] . "</td>";
                     echo "<td>" . $res['prod_cost'] . "</td>";

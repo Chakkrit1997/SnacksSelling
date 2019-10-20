@@ -1,6 +1,9 @@
 <?php
 include 'db.php';
-
+session_start();
+if ($_SESSION["status"] !== "admin") {
+  header("Location: user_login_page.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +38,7 @@ include 'db.php';
         <div class="col-md-12">
             <?php
             if (isset($_POST['submit'])) {
+                //$id = $_POST['id'];
                 $prod_name = $_POST['prod_name'];
                 $prod_desc = $_POST['prod_desc'];
                 $prod_qty = $_POST['prod_qty'];
@@ -77,22 +81,25 @@ include 'db.php';
                     $result = mysqli_query($dbcon, $query);
 
                     if ($result) {
-
+                        
                         $prod_name = $_POST['prod_name'];
                         $prod_qty = $_POST['prod_qty'];
 
                         date_default_timezone_set('Asia/Bangkok');
 
                         $date = date("Y-m-d H:i:s");
-                        //$id = $_SESSION['id'];
+
+                        
 
                         $query = mysqli_query($dbcon, "SELECT prod_name FROM products WHERE prod_id='$prod_name'") or die(mysqli_error($dbcon));
 
                         $row = mysqli_fetch_array($query);
                         $product = $row['prod_name'];
-                        $remarks = "added a new product $prod_qty of $prod_name";
+                        $username = $_SESSION['username'];
+                        $id = $_SESSION['id'];
+                        $remarks = "$username ได้ทำการเพิ่มสินค้าใหม่ชื่อว่า [$prod_name] จำนวน ($prod_qty)";
 
-                        //mysqli_query($dbcon, "INSERT INTO logs (user_id,action,date) VALUES ('$id','$remarks','$date')") or die(mysqli_error($dbcon));
+                        mysqli_query($dbcon, "INSERT INTO logs (login_id,action,date) VALUES ('$id','$remarks','$date')") or die(mysqli_error($dbcon));
 
                         //redirecting to the display page.
                         echo "เพิ่มขนมสำเร็จ";
