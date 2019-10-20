@@ -1,7 +1,8 @@
 <?php
 include 'db.php';
-if ($_SESSION["status"] == "admin") {
-  header("Location: admin_index.php");
+session_start();
+if ($_SESSION["status"] !== "user") {
+  header("Location: user_login_page.php");
 }
 ?>
 

@@ -1,6 +1,9 @@
 <?php
 include 'db.php';
-
+session_start();
+if ($_SESSION["status"] !== "admin") {
+  header("Location: user_login_page.php");
+}
 ?>
 
 <!DOCTYPE html>
