@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 if ($_SESSION["status"] !== "admin") {
-  header("Location: .php");
+  //header("Location: .php");
 }
 ?>
 
