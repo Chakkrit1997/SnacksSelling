@@ -120,7 +120,7 @@ if ($_SESSION["status"] !== "user") {
               ?>
 
               <script type="text/javascript">
-                alert("Shopping Cart Empty! Add an item.");
+                alert("ไม่มีสินค้าในตะกร้า! กรุณาเพิ่มสินค้า.");
                 window.location = "user_index.php";
               </script>
 

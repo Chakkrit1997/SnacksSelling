@@ -70,7 +70,7 @@ if ($_SESSION["status"] !== "admin") {
             <label for="category">อัพเดทสถานะ :</label>
 
             <form action="admin_check_status.php" method="post">
-            <input type="hidden" id="track_num" name="track_num" value="<?php echo "$_GET[track_num]";?>">
+                <input type="hidden" id="track_num" name="track_num" value="<?php echo "$_GET[track_num]"; ?>">
                 <div class="input-group">
                     <select class="form-control " id="category" name="category" required>
                         <?php
@@ -82,7 +82,7 @@ if ($_SESSION["status"] !== "admin") {
                         <?php } ?>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-success btn-round mt-2" id="submit" >
+                <button type="submit" class="btn btn-success btn-round mt-2" id="submit">
                     <i class="now-ui-icons ui-1_check"></i> บันทึก สถานะการส่งสินค้า
                 </button>
             </form>
@@ -97,10 +97,7 @@ if ($_SESSION["status"] !== "admin") {
             echo "<div class='alert alert-success'>Record was deleted.</div>";
         }
 
-        $track_num = $_GET['track_num'];
-        $id = $_SESSION['id'];
-        $query = "SELECT * FROM order_details INNER JOIN products ON order_details.prod_id = products.prod_id WHERE track_num='$track_num'";
-        $result = mysqli_query($dbcon, $query);
+
         ?>
 
         <br>
@@ -115,21 +112,33 @@ if ($_SESSION["status"] !== "admin") {
             </tr>
 
             <?php
+            $track_num = $_GET['track_num'];
+            $id = $_SESSION['id'];
+            $query = "SELECT * FROM order_details INNER JOIN products ON order_details.prod_id = products.prod_id WHERE track_num='$track_num'";
+            $result = mysqli_query($dbcon, $query);
             if ($result) {
                 while ($res = mysqli_fetch_array($result)) {
-                    echo "<tr>";
-                    echo "<td>" . $res['prod_name'] . "</td>";
-                    echo "<td>" . $res['prod_desc'] . "</td>";
-                    echo "<td>" . $res['prod_qty'] . "</td>";
-                    echo "<td>" . $res['prod_price'] . "</td>";
-                    
-                }
-            }
+                    ?>
+                    <tr>
+                        <td> <img width="150" height="150" src="uploads/<?php echo $res['prod_pic1']; ?>" alt="" /> </td>
+                        <td><b><?php echo $res['prod_name']; ?></b><br><br>
+                            <?php echo $res['prod_desc'];
+                            ?>
+                        </td>
+                        <td> <?php echo $res['prod_qty']; ?> </td>
+                        <td> <?php echo $res['prod_price'] ?> </td>
 
-            ?>
+
+                <?php }
+                }
+
+                ?>
+
+
+
 
         </table>
-
-
     </div>
 </body>
+
+</html>
