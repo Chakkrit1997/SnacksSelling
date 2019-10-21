@@ -55,7 +55,7 @@ if ($_SESSION["status"] !== "user") {
       <div class="container">
         <br>
         <div class="col-md-12">
-          <h2 class="title">Products</h2>
+          <h2 class="title">รายการสินค้า</h2>
           <div class="typography-line">
             <p>
               ช้อปปิ้งออนไลน์ ขนมราคาพิเศษ ที่ Snacks Selling Online โปรโมชั่นพิเศษ พร้อมบริการจัดส่งสินค้า

@@ -91,25 +91,25 @@
                         </div>
 
                         <div class="form-group mt-5">
-                            <input type="text" class="form-control" name="username" id="username_register" onkeyup="checkusername();" placeholder="Username" required autofocus>
+                            <input type="text" class="form-control" name="username" id="username_register" onkeyup="checkusername();" placeholder="ชื่อผู้ใช้" required autofocus>
                             <span id="name_status"></span>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" name="password" id="password_register" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" id="password_register" placeholder="รหัสผ่าน" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="ConfirmPassword" required>
+                            <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="ยืนยันรหัสผ่าน" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="firstname" id="firstname_register" placeholder="Firstname" required>
+                            <input type="text" class="form-control" name="firstname" id="firstname_register" placeholder="ชื่อจริง" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="lastname" id="lastname_register" placeholder="Lastname" required>
+                            <input type="text" class="form-control" name="lastname" id="lastname_register" placeholder="นามสกุล" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" name="email" id="email_register" placeholder="Email Address" required>
+                            <input type="email" class="form-control" name="email" id="email_register" placeholder="อีเมลล์" required>
                         </div>
-                        <button type="submit" name="login" class="mt-2 btn btn-success btn-block" id="btn_regis">Register</button>
+                        <button type="submit" name="login" class="mt-2 btn btn-success btn-block" id="btn_regis">ลงทะเบียน</button>
                     </form>
                     <!--  End Register Form-->
                 </div>
