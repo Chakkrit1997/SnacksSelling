@@ -81,7 +81,7 @@ if ($_SESSION["status"] !== "user") {
                   <?php endif; ?>
 
                   <div class="caption text-center">
-                    <h5><b><?php echo $res['prod_name']; ?></b> <b><?php echo $res['prod_price']; ?></b></h5>
+                    <h5><b><?php echo $res['prod_name']; ?></b> <b><?php echo "$res[prod_price] บาท" ?></b></h5>
                   </div>
                   <div class="text-center">
                     <a class="btn btn-success btn-round mr-2" title="Click for more details!" href="user_product_detail.php?prod_id=<?php echo $res['prod_id']; ?>">ดูรายละเอียดสินค้า</a>

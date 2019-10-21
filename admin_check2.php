@@ -52,70 +52,84 @@ if ($_SESSION["status"] !== "admin") {
     </div>
 
     <div class="container">
+
         <div class="row">
             <div>
-                <h3>รายละเอียดสินค้า</h3>
+                <h3>สถานะการสั่งซื้อ</h3>
             </div>
         </div>
-        <a class="btn btn-success btn-round" href="product_add.php"><i class="now-ui-icons ui-1_simple-add"></i> เพิ่มสินค้า </a>
-        <br>
+        <?
+        $track_num = $_GET['track_num'];
+
+        ?>
+        <div>
+            <a class="btn btn-danger btn-round" href="admin_check.php"><i class="now-ui-icons ui-1_simple-add"></i> กลับ </a>
+        </div>
+
+        <div>
+            <label for="category">อัพเดทสถานะ :</label>
+
+            <form action="admin_check_status.php" method="post">
+            <input type="hidden" id="track_num" name="track_num" value="<?php echo "$_GET[track_num]";?>">
+                <div class="input-group">
+                    <select class="form-control " id="category" name="category" required>
+                        <?php
+                        include('db.php');
+                        $query = mysqli_query($dbcon, "SELECT status_title FROM status ") or die(mysqli_connect_error());
+                        while ($row = mysqli_fetch_array($query)) {
+                            ?>
+                            <option value="<?php echo $row['status_title']; ?>"><?php echo $row['status_title']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success btn-round mt-2" id="submit" >
+                    <i class="now-ui-icons ui-1_check"></i> บันทึก สถานะการส่งสินค้า
+                </button>
+            </form>
+        </div>
+
+
 
         <?php
+
         $action = isset($_GET['action']) ? $_GET['action'] : "";
         if ($action == 'deleted') {
             echo "<div class='alert alert-success'>Record was deleted.</div>";
         }
-        $query = "SELECT * FROM products ORDER BY prod_id ASC";
+
+        $track_num = $_GET['track_num'];
+        $id = $_SESSION['id'];
+        $query = "SELECT * FROM order_details INNER JOIN products ON order_details.prod_id = products.prod_id WHERE track_num='$track_num'";
         $result = mysqli_query($dbcon, $query);
         ?>
+
         <br>
         <br>
-        <table id="" class="table table-condensed table-striped">
+        <table class="table table-condensed table-striped">
             <tr>
-                <th>รหัสสินค้า</th>
-                <th>ชื่อสินค้า</th>
+                <th>สินค้า</th>
                 <th>รายละเอียดสินค้า</th>
-                <th>ราคาต้นทุน(บาท)</th>
-                <th>ราคาขาย(บาท)</th>
-                <th>จำนวนสินค้าคงเหลือ</th>
-                <th>ประเภทสินค้า</th>
-                <th>ผู้ผลิต</th>
-                <th>ตัวเลือก</th>
+                <th>จำนวน</th>
+                <th>ราคา</th>
+
             </tr>
+
             <?php
             if ($result) {
                 while ($res = mysqli_fetch_array($result)) {
                     echo "<tr>";
-                    echo "<td>" . $res['prod_id'] . "</td>";
                     echo "<td>" . $res['prod_name'] . "</td>";
                     echo "<td>" . $res['prod_desc'] . "</td>";
-                    echo "<td>" . $res['prod_cost'] . "</td>";
+                    echo "<td>" . $res['prod_qty'] . "</td>";
                     echo "<td>" . $res['prod_price'] . "</td>";
-
-                    $prod_qty = $res['prod_qty'];
-
-                    if ($prod_qty <= 9) {
-                        ?>
-                        <td><span style="color:red;"><?php echo $res['prod_qty']; ?> : Reorder!</span></td>
-                    <?php
-                            } else {
-                                ?>
-                        <td><?php echo $res['prod_qty']; ?></td>
-                        </ul>
-            <?php }
-
-                    echo "<td>" . $res['category'] . "</td>";
-                    echo "<td>" . $res['supplier'] . "</td>";
-                    // echo '<td class="text-center">
-                    //         <a class="btn btn-outline-warning shadow-sm btn-md mb-2" href="product_update.php?prod_id='.$res['prod_id'].'" class="btn" >Edit</a>
-                    //         <a class="btn btn-outline-danger shadow-sm btn-md" href="product_delete.php?prod_id='.$res['prod_id'].'" >Delete</a>
-                    //     </tr>';
-                    echo "<td class=\"text-center\">
-                            <a class=\"btn btn-outline-warning shadow-sm btn-md mb-2\" href=\"product_update.php?prod_id=$res[prod_id]\" >แก้ไข</a>
-                            <a class=\"btn btn-outline-danger shadow-sm btn-md\" href=\"product_delete.php?prod_id=$res[prod_id]\" onClick=\"return confirm('คุณแน่ใจที่ต้องการลบรายการสินค้านี้ ?')\">ลบ</a>
-                        </tr>";
+                    
                 }
-            } ?>
+            }
+
+            ?>
+
         </table>
+
+
     </div>
 </body>
