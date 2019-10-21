@@ -31,9 +31,9 @@ if ($_SESSION["status"] !== "admin") {
 
 <body>
     <div class="container mt-5 ">
-        <h2>Purchased Product Information</h2>
+        <h2>เพิ่มรายการสินค้า</h2>
         <hr color="orange">
-        <a href='admin_productinfo.php' class='btn btn-warning btn-round'>Back to Index</a>
+        <a href='admin_productinfo.php' class='btn btn-warning btn-round'>กลับสู่หน้าหลัก</a>
         <br>
         <div class="col-md-12">
             <?php
@@ -112,8 +112,8 @@ if ($_SESSION["status"] !== "admin") {
 
 
             <div class="panel panel-success panel-size-custom">
-                <div class="panel-heading">
-                    <h3>Add Purchased Products</h3>
+                <div class="panel-heading mt-2">
+                   
                 </div>
 
 
@@ -122,20 +122,20 @@ if ($_SESSION["status"] !== "admin") {
                         <div class="form group">
                             <div class="form group">
                                 <button type="submit" class="btn btn-success btn-round" id="submit" name="submit">
-                                    <i class="now-ui-icons ui-1_check"></i> Add Product
+                                    <i class="now-ui-icons ui-1_check"></i> เพิ่มสินค้า
                                 </button>
                             </div>
-                            <label for="prod_name">Product Name :</label>
-                            <input type="text" class="form-control" id="prod_name" name="prod_name" placeholder="Product Name" />
-                            <label for="prod_desc">Product Description :</label>
-                            <input type="text" class="form-control" id="prod_desc" name="prod_desc" placeholder="Product Description" />
-                            <label for="prod_cost">Product Cost :</label>
-                            <input type="text" class="form-control" id="prod_cost" name="prod_cost" placeholder="" />
-                            <label for="prod_price">Product Price :</label>
-                            <input type="text" class="form-control" id="prod_price" name="prod_price" placeholder="" />
-                            <label for="prod_qty">Quantity:</label>
-                            <input type="text" class="form-control" id="prod_qty" name="prod_qty" placeholder="" />
-                            <label for="category">Category:</label>
+                            <label for="prod_name">ชื่อสินค้า :</label>
+                            <input type="text" class="form-control" id="prod_name" name="prod_name" placeholder="ขนม" />
+                            <label for="prod_desc">รายละเอียดสินค้า :</label>
+                            <input type="text" class="form-control" id="prod_desc" name="prod_desc" placeholder="ขนมอร่อยมาก" />
+                            <label for="prod_cost">ราคาต้นทุน :</label>
+                            <input type="text" class="form-control" id="prod_cost" name="prod_cost" placeholder="5,000" />
+                            <label for="prod_price">ราคาขาย :</label>
+                            <input type="text" class="form-control" id="prod_price" name="prod_price" placeholder="50,000" />
+                            <label for="prod_qty">จำนวน :</label>
+                            <input type="text" class="form-control" id="prod_qty" name="prod_qty" placeholder="1,000,000" />
+                            <label for="category">ประเภท :</label>
                             <div class="input-group">
                                 <select class="form-control" id="category" name="category" required>
                                     <?php
@@ -149,7 +149,7 @@ if ($_SESSION["status"] !== "admin") {
                             </div>
 
                             
-                            <label for="prod_pic1">Picture 1 :</label>
+                            <label for="prod_pic1">เพิ่มรูปสินค้า :</label>
                             <div class="input-group">
                                 <input type="file" class="form-control" id="prod_pic1" name="prod_pic1">
                             </div>

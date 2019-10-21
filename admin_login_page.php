@@ -33,17 +33,17 @@
         <!--  Start Login Form-->
         <form class="mt-2 myForm" method="post" action="admin_login.php">
             <div class="text-center">
-                <h2 class="mt-2 font-weight-normal">Admin Login</h2>
+                <h2 class="mt-2 font-weight-normal">เข้าสู่ระบบ ผู้ดูแล</h2>
             </div>
             <div class="form-group mt-2">
-                <input type="text" class="form-control" name="username" id="username" placeholder="Username" required autofocus>
+                <input type="text" class="form-control" name="username" id="username" placeholder="ชื่อผู้ใช้" required autofocus>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                <input type="password" class="form-control" name="password" id="password" placeholder="รหัสผ่าน" required>
             </div>
 
             <div class="form-group">
-                <button type="submit" name="login" class="mt-2 btn btn-primary btn-block">Login</button>
+                <button type="submit" name="login" class="mt-2 btn btn-primary btn-block">เข้าสู่ระบบ</button>
             </div>
 
             <!-- Button trigger modal -->
@@ -60,7 +60,7 @@
                     <a href="user_login_page.php">&copy;
                         <script>
                             document.write(new Date().getFullYear())
-                        </script>,</a> Designed and Coded by Chakkrit Tha-aphai
+                        </script>,</a> Designed and Coded by Chakkrit Tha-aphai, Pongsakorn Pitakkanitkul, Wuttipong Sootlek, Boonrit Duanghirunphuckdee
                 </div>
             </div>
         </footer>

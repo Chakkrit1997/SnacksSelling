@@ -60,7 +60,7 @@
                     <a href="admin_login_page.php">&copy;
                         <script>
                             document.write(new Date().getFullYear())
-                        </script>,</a> Designed and Coded by Chakkrit Tha-aphai, Pongsakorn Pitakkanitkul
+                        </script>,</a> Designed and Coded by Chakkrit Tha-aphai, Pongsakorn Pitakkanitkul, Wuttipong Sootlek, Boonrit Duanghirunphuckdee
                 </div>
             </div>
         </footer>

@@ -112,7 +112,7 @@ if ($_SESSION["status"] !== "admin") {
                     //     </tr>';
                     echo "<td class=\"text-center\">
                             <a class=\"btn btn-outline-warning shadow-sm btn-md mb-2\" href=\"product_update.php?prod_id=$res[prod_id]\" >แก้ไข</a>
-                            <a class=\"btn btn-outline-danger shadow-sm btn-md\" href=\"product_delete.php?prod_id=$res[prod_id]\" onClick=\"return confirm('Are you sure you want to delete?')\">ลบ</a>
+                            <a class=\"btn btn-outline-danger shadow-sm btn-md\" href=\"product_delete.php?prod_id=$res[prod_id]\" onClick=\"return confirm('คุณแน่ใจที่ต้องการลบรายการสินค้านี้ ?')\">ลบ</a>
                         </tr>";
                 }
             } ?>
