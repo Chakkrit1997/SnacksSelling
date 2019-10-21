@@ -19,8 +19,12 @@ if ($result_user->num_rows == 1) {
     session_start();
     $row_user = mysqli_fetch_array($result_user, MYSQLI_ASSOC);
     $_SESSION['username'] = $row_user['login_username'];
+    $_SESSION['firstname'] = $row_user["firstname"];
+    $_SESSION['lastname'] = $row_user["lastname"];
+    $_SESSION['email'] = $row_user["login_email"];
     $_SESSION['id'] = $row_user['login_id'];
     $_SESSION['status'] = $row_user["login_status"];
+
 
     if ($_SESSION["status"] == "user") {
         header("Location: user_index.php");
