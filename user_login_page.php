@@ -1,6 +1,3 @@
-
-
-
 <!doctype html>
 <html lang="en">
 
@@ -34,7 +31,7 @@
         </div>
 
         <!--  Start Login Form-->
-        <form class="mt-2 myForm" method="post" action="user_login.php">
+        <form class="mt-2 myForm" method="post" action="login.php">
             <div class="text-center">
                 <h2 class="mt-2 font-weight-normal">Customer Login</h2>
             </div>

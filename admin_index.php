@@ -63,9 +63,7 @@ if ($_SESSION["status"] !== "admin") {
               ช้อปปิ้งออนไลน์ ขนมราคาพิเศษ ที่ Snacks Selling Online โปรโมชั่นพิเศษ พร้อมบริการจัดส่งสินค้า
             </p>
           </div>
-          <br>
         </div>
-        <br>
 
         <hr color="orange">
 
