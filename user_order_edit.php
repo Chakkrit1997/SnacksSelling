@@ -134,7 +134,18 @@ if ($_SESSION["status"] !== "user") {
     </div>
 
 
-
+    <div class="text-center mt-2">
+    <footer class="footer">
+      <div class="container">
+        <div class="copyright align-right">
+          <a href="">&copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script>,</a> Designed and Coded by Chakkrit Tha-aphai, Pongsakorn Pitakkanitkul, Wuttipong Sootlek, Boonrit Duanghirunphuckdee
+        </div>
+      </div>
+    </footer>
+  </div>
 
 
 </body>

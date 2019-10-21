@@ -75,6 +75,9 @@ while ($res = mysqli_fetch_array($result)) {
                         <h2>รายละเอียดสินค้า</h2>
                         <a class="btn btn-primary btn-round" href="user_index.php"><i class="now-ui-icons arrows-1_minimal-left"></i> &nbsp กลับสู่หน้าหลัก</a>
                         <hr color="orange">
+                        <div class="form-group text-left">
+                            <button class="btn btn-success btn-round " data-toggle="modal" data-target="#myModal">เพิ่มลงตระกร้า</button>
+                        </div>
                         <div class="col-md-12">
                             <div class="row justify-content-center">
                                 <div class="col-8">
@@ -114,6 +117,7 @@ while ($res = mysqli_fetch_array($result)) {
                                 </div>
                             </div>
                         </div>
+                        <!-- Button trigger modal -->
 
                         <h4><br><br>
 
@@ -146,11 +150,6 @@ while ($res = mysqli_fetch_array($result)) {
                     <?php } ?>
 
                         </h4>
-
-                        <!-- Button trigger modal -->
-                        <div class="form-group">
-                            <button class="btn btn-success btn-round pull-right" data-toggle="modal" data-target="#myModal">เพิ่มลงตระกร้า</button>
-                        </div>
 
 
                         <!-- Modal Core -->
@@ -199,6 +198,18 @@ while ($res = mysqli_fetch_array($result)) {
     <script src="src/js/jquery-3.3.1.min.js"></script>
     <script src="src/js/bootstrap.min.js"></script>
 
+    <div class="text-center mt-2">
+    <footer class="footer">
+      <div class="container">
+        <div class="copyright align-right">
+          <a href="">&copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script>,</a> Designed and Coded by Chakkrit Tha-aphai, Pongsakorn Pitakkanitkul, Wuttipong Sootlek, Boonrit Duanghirunphuckdee
+        </div>
+      </div>
+    </footer>
+  </div>
 </body>
 
 </html>

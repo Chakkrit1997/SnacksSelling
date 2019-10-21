@@ -4,6 +4,10 @@ session_start();
 if ($_SESSION["status"] !== "user") {
   header("Location: user_login_page.php");
 }
+
+if(isset($_GET['itemname'])){
+    $word= $_GET['itemname'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -57,10 +61,10 @@ if ($_SESSION["status"] !== "user") {
         <div class="col-md-12">
           <h2 class="title">รายการสินค้า</h2>
           <div>
-            <form action="user_search.php" class="form-inline" name="searchform" id="searchform" method="get">
+            <form action="" class="form-inline" name="searchform" id="searchform" method="get">
               <div class="form-group">
                 <label for="textsearch">ชื่อสินค้า</label>
-                <input type="text" name="itemname" id="itemname" class="form-control ml-2 mr-2" placeholder="ข้อความ คำค้นหา!">
+                <input type="text" name="itemname" id="itemname" class="form-control ml-2 mr-2" placeholder="ข้อความ คำค้นหา!" autocomplete="off">
               </div>
               <button type="submit" class="btn btn-primary" id="btnSearch">
                 ค้นหา
@@ -80,7 +84,7 @@ if ($_SESSION["status"] !== "user") {
         <div class="container">
           <div class="row">
             <?php
-            $query = "SELECT * FROM products ORDER BY prod_id ASC";
+            $query = "SELECT * FROM products WHERE prod_name LIKE '%$word%' ORDER BY prod_id ASC";
             $result = mysqli_query($dbcon, $query);
             while ($res = mysqli_fetch_array($result)) {
               $prod_id = $res['prod_id'];

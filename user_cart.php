@@ -164,7 +164,18 @@ if ($_SESSION["status"] !== "user") {
   <!--   Core JS Files   -->
   <script src="src/js/jquery-3.3.1.min.js"></script>
   <script src="src/js/bootstrap.min.js"></script>
-
+  <div class="text-center mt-2">
+    <footer class="footer">
+      <div class="container">
+        <div class="copyright align-right">
+          <a href="">&copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script>,</a> Designed and Coded by Chakkrit Tha-aphai, Pongsakorn Pitakkanitkul, Wuttipong Sootlek, Boonrit Duanghirunphuckdee
+        </div>
+      </div>
+    </footer>
+  </div>
 
 </body>
 
