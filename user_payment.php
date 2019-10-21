@@ -3,7 +3,6 @@ include 'db.php';
 session_start();
 if ($_SESSION["status"] !== "user") {
   header("Location: user_login_page.php");
-
 }
 ?>
 <!DOCTYPE html>
@@ -35,55 +34,81 @@ if ($_SESSION["status"] !== "user") {
           echo $_SESSION['username'];
           ?>'s Checking Out!
     </h2>
-
     <hr color="orange">
-
     <div class="col-md-12">
       <br>
-
       <div class="panel panel-success panel-size-custom">
         <div class="panel-body text-center">
           <?php
           $user_id = $_SESSION['id'];
 
-          $query = mysqli_query($dbcon, "SELECT * FROM `tb_login` WHERE login_id=$user_id ");
+          $query = mysqli_query($dbcon, "SELECT * FROM tb_login WHERE login_id=$user_id ");
           $row = mysqli_fetch_array($query);
+          //print_r($row);
           $firstname = $row['firstname'];
           $lastname = $row['lastname'];
           $email = $row['login_email'];
           // $contact = $row['contact'];
 
 
+
           // เลือกทั้งหมด ที่ id 122 order_id=''
-          $query3 = mysqli_query($dbcon, "SELECT * FROM order_details WHERE login_id='$user_id' AND order_id=''") or die(mysqli_connect_error());
-          $row3 = mysqli_fetch_array($query3);
-          $count = mysqli_num_rows($query3); // นับแถว แปลกๆ
 
-          $prod_id = $row3['prod_id'];
-          $qty = $row3['prod_qty'];
+          //print_r($query3);
+          //echo "<br><br>";
+          //$row3 = mysqli_fetch_array($query3);
+          //print_r($row3);
+          //echo"<br><br>";
 
-          $query2 = mysqli_query($dbcon, "SELECT * FROM products WHERE prod_id='$prod_id'") or die(mysqli_connect_error());
-          $row2 = mysqli_fetch_array($query2);
-          $prod_qty = $row2['prod_qty'];
+          $query3 = mysqli_query($dbcon, "SELECT * FROM order_details WHERE login_id='$user_id' AND order_id='' ") or die(mysqli_connect_error());
+          while ($res = mysqli_fetch_array($query3)) {
+            $row3 = $res;
+            $prod_id = $row3['prod_id']; // ไอดี สินค้า 
+            $qty = $row3['prod_qty']; // จำนวน ที่ซื้อ
+            $query2 = mysqli_query($dbcon, "SELECT * FROM products WHERE prod_id='$prod_id'") or die(mysqli_connect_error());
+            $row2 = mysqli_fetch_array($query2);
+            $prod_qty = $row2['prod_qty']; // จำนวนขนมทั้งหมด ที่ชนิดนี้ มี
+            mysqli_query($dbcon, "UPDATE products SET prod_qty = prod_qty - $qty WHERE prod_id ='$prod_id' AND prod_qty='$prod_qty'");
+            //อัพเดทหลัง จำนวนที่เหลือ = จำนวนทั้งหมด - จำนวนที่สั่งซื้อ
+          }
 
-          //อัพเดทหลัง
-          mysqli_query($dbcon, "UPDATE products SET prod_qty = prod_qty - $qty WHERE prod_id ='$prod_id' AND prod_qty='$prod_qty'");
 
-          //ผลรวมของ ID นั้นๆ
-          $cart_table = mysqli_query($dbcon, "SELECT sum(total) FROM order_details WHERE login_id='$user_id' AND order_id=''") or die(mysqli_connect_error());
+          //$count = mysqli_num_rows($query3); // นับแถว แปลกๆ
+          //print_r($count);
+          //echo "<br><br>";
+
+
+          //$prod_id = $row3['prod_id']; //printf($prod_id); // ไอดี สินค้า 
+          //echo " <br><br>";
+          //$qty = $row3['prod_qty']; // จำนวน ที่ซื้อ
+          // printf($qty); 
+          //$query2 = mysqli_query($dbcon, "SELECT * FROM products WHERE prod_id='$prod_id'") or die(mysqli_connect_error());
+          //$row2 = mysqli_fetch_array($query2);
+
+          //$prod_qty = $row2['prod_qty']; // จำนวนขนมทั้งหมด ที่ชนิดนี้ มี
+          //printf($prod_qty);
+
+          //อัพเดทหลัง จำนวนที่เหลือ = จำนวนทั้งหมด - จำนวนที่สั่งซื้อ
+          //mysqli_query($dbcon, "UPDATE products SET prod_qty = prod_qty - $qty WHERE prod_id ='$prod_id' AND prod_qty='$prod_qty'");
+
+
+
+          //ผลรวมราคา ของ ID นั้นๆ
+
+          //print_r($cart_table);
 
           //
-          $cart_count = mysqli_num_rows($cart_table);
-
+          //$cart_count = mysqli_num_rows($cart_table);
+          //print_r($cart_count);
+          $cart_table = mysqli_query($dbcon, "SELECT sum(total) FROM order_details WHERE login_id='$user_id' AND order_id=''") or die(mysqli_connect_error());
           while ($cart_row = mysqli_fetch_array($cart_table)) {
 
             $total = $cart_row['sum(total)'];
-            date_default_timezone_set('Asia/Bangkok');
             $date = date("Y-m-d H:i:s");
-            
-            $track_num = $user_id . $user_id + 1000;
+            $tp = $row3['order_details_id'];
+
+            $track_num = $user_id . $tp;
             $shipaddress = $_POST['shipaddress'];
-            // $city = $_POST['city'];
             $ship_add = $shipaddress;
             echo 'login_id = ' . $user_id . '<br>';
             echo 'track_num = ' . $track_num . '<br>';
@@ -93,7 +118,7 @@ if ($_SESSION["status"] !== "user") {
             echo 'shipping_add = ' . $ship_add . '<br>';
             echo 'order_date = ' . $date . '<br>';
             echo 'totalprice = ' . $total . '<br>';
-            
+
 
 
             echo '********* หมายเลขคำสั่งซื้อของคุณ : ' . $track_num . ' | ';
@@ -101,13 +126,14 @@ if ($_SESSION["status"] !== "user") {
             echo 'ส่งไปที่อยู่ : ' . $ship_add . ' *********';
 
 
-            $query9 = "INSERT INTO order (login_id, track_num, firstname, lastname, email , shipping_add, order_date, statuss, totalprice) 
-                                VALUES ('$user_id','$track_num','$firstname','$lastname','$email','$ship_add','$date','pending','$total')";
-            mysqli_query($dbcon, $query9) or die(mysqli_connect_error());
+            $query9 = "INSERT INTO order2 (login_id, track_num, firstname, lastname, email , shipping_add, order_date, statuss, totalprice) VALUES ('$user_id','$track_num','$firstname','$lastname','$email','$ship_add','$date','รอจัดส่ง','$total')";
+            mysqli_query($dbcon, $query9) or die(mysqli_error($dbcon));
 
-
+            mysqli_query($dbcon, "UPDATE order_details SET track_num= $track_num WHERE login_id='$user_id' AND order_id=''") or die(mysqli_connect_error());
             mysqli_query($dbcon, "UPDATE order_details SET order_id = order_id+1 WHERE login_id='$user_id' AND order_id=''") or die(mysqli_connect_error());
-            mysqli_query($dbcon, "UPDATE order_details SET total_qty =$prod_qty - $qty WHERE prod_id ='$prod_id' AND total_qty='' ");
+            
+            //mysqli_query($dbcon, "INSERT INTO order_details(track_num) VALUES ('$track_num') WHERE login_id='$user_id' AND order_id=''") or die(mysqli_connect_error());
+            //mysqli_query($dbcon, "UPDATE order_details SET total_qty =$prod_qty - $qty WHERE prod_id ='$prod_id' AND total_qty='' ");
           }
 
           ?>
