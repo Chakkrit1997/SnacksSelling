@@ -35,10 +35,12 @@ if ($_SESSION["status"] !== "user") {
                 $query = mysqli_query($dbcon, "SELECT * FROM `tb_login` WHERE login_id='" . $_SESSION['id'] . "'");
                 $row = mysqli_fetch_array($query);
                 $cid = $row['login_id'];
+                ?>รายการสินค้าของ
+                <?
                 echo $row['firstname'];
-                ?>'s Shopping Cart
+                ?>
         </h2>
-        <a class="btn btn-primary btn-round" href="user_index.php"><i class="now-ui-icons shopping_basket"></i> &nbsp Shop more items</a>
+        <a class="btn btn-primary btn-round" href="user_index.php"><i class="now-ui-icons shopping_basket"></i> &nbsp ซื้อสินค้าเพิ่ม</a>
         <hr color="orange">
 
         <div class="col-md-12">
@@ -66,7 +68,7 @@ if ($_SESSION["status"] !== "user") {
                         ?>
 
                         <script type="text/javascript">
-                            alert("Quantity Updated");
+                            alert("เพิ่มรายการสินค้าแล้ว");
                             window.location = "user_cart.php";
                         </script>
                     <?php
@@ -74,16 +76,16 @@ if ($_SESSION["status"] !== "user") {
                     ?>
                     <form method="post">
                         
-                        <button type="submit" name="submit" class="btn btn-success btn-round">Update</button>
-                        <a href="user_cart.php" class="btn btn-large btn-danger"><i class="icon-arrow-left"></i> Cancel </a>
+                        <button type="submit" name="submit" class="btn btn-success btn-round">ตกลง</button>
+                        <a href="user_cart.php" class="btn btn-large btn-danger"><i class="icon-arrow-left"></i> ยกเลิก </a>
                         <table class="table table-bordered table-condensed mt-2">
                             <thead>
                                 <tr>
-                                    <th>Product</th>
-                                    <th>Description</th>
-                                    <th width="100">Quantity</th>
-                                    <th width="100">Price(Php)</th>
-                                    <th width="100">Total(Php)</th>
+                                    <th>สินค้า</th>
+                                    <th>รายละเอียดสินค้า</th>
+                                    <th width="100">จำนวน</th>
+                                    <th width="100">ราคา(บาท)</th>
+                                    <th width="100">รวม(บาท)</th>
                                 </tr>
                             </thead>
                             <tbody>

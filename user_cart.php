@@ -89,7 +89,7 @@ if ($_SESSION["status"] !== "user") {
                     <td><br><?php echo $row['total']; ?></td>
                     <td class="text-center">
                       <a href="user_order_edit.php?order_id=<?php echo $row['order_details_id']; ?>"><button class="btn btn-warning btn-round mb-2" type="button">เปลี่ยนจำนวน</button></a>
-                      <a href="user_order_delete.php?order_id=<?php echo $row['order_details_id']; ?>"><button class="btn btn-danger btn-round" onclick="return confirm('Are you sure you want to delete?')" type="button">ลบ</button></a>
+                      <a href="user_order_delete.php?order_id=<?php echo $row['order_details_id']; ?>"><button class="btn btn-danger btn-round" onclick="return confirm('คุณแน่ใจที่ต้องการลบรายการสินค้า?')" type="button">ลบ</button></a>
                     </td>
                   <?php
                   } ?>

@@ -33,7 +33,7 @@ while ($res = mysqli_fetch_array($result)) {
             mysqli_query($dbcon, "INSERT INTO order_details (prod_id,prod_qty,total,login_id) VALUES ('$prod_id','$prod_qty','$total','$user_id')") or die(mysql_error());
             ?>
             <script type="text/javascript">
-                alert("Product Added To Cart!");
+                alert("เพิ่มสินค้าลงตระกร้าแล้ว!");
                 window.location = "user_index.php";
             </script>
 <?php

@@ -31,9 +31,9 @@ if ($_SESSION["status"] !== "admin") {
 
 <body>
     <div class="container mt-5 ">
-        <h2>Purchased Product Information</h2>
+        <h2>ข้อมูลรายการสินค้า</h2>
         <hr color="orange">
-        <a href='admin_productinfo.php' class='btn btn-warning btn-round'>Back to Index</a>
+        <a href='admin_productinfo.php' class='btn btn-warning btn-round'>กลับสู่หน้าหลัก</a>
         <br>
         <div class="col-md-12">
             <?php
@@ -106,7 +106,7 @@ if ($_SESSION["status"] !== "admin") {
 
             <div class="panel panel-success panel-size-custom">
                 <div class="panel-heading">
-                    <h3>Update Products</h3>
+                    <h3>แก้ไขรายการสินค้า</h3>
                 </div>
 
 
@@ -122,17 +122,17 @@ if ($_SESSION["status"] !== "admin") {
                                 <img src="uploads/<?php echo $prod_pic; ?> " width="300px" height="300px">
                             </div>
                             <input type="hidden" class="form-control" id="prod_id" name="prod_id" value=<?php echo $_GET['prod_id']; ?>>
-                            <label for="prod_name">Product Name :</label>
+                            <label for="prod_name">ชื่อสินค้า :</label>
                             <input type="text" class="form-control" id="prod_name" name="prod_name" placeholder="Product Name" value="<?php echo $prod_name; ?>" />
-                            <label for="prod_desc">Product Description :</label>
+                            <label for="prod_desc">รายละเอียดสินค้า :</label>
                             <input type="text" class="form-control" id="prod_desc" name="prod_desc" placeholder="Product Description" value="<?php echo $prod_desc; ?>" />
-                            <label for="prod_cost">Product Cost :</label>
+                            <label for="prod_cost">ราคาต้นทุน :</label>
                             <input type="text" class="form-control" id="prod_cost" name="prod_cost" placeholder="" value="<?php echo $prod_cost; ?>" />
-                            <label for="prod_price">Product Price :</label>
+                            <label for="prod_price">ราคาขาย :</label>
                             <input type="text" class="form-control" id="prod_price" name="prod_price" placeholder="" value="<?php echo $prod_price; ?>" />
-                            <label for="prod_qty">Quantity:</label>
+                            <label for="prod_qty">จำนวน :</label>
                             <input type="text" class="form-control" id="prod_qty" name="prod_qty" placeholder="" value="<?php echo $prod_qty; ?>" />
-                            <label for="category">Category:</label>
+                            <label for="category">ประเภท :</label>
                             <div class="input-group">
                                 <select class="form-control" id="category" name="category" required>
                                     <?php
