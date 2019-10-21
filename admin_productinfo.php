@@ -54,10 +54,10 @@ if ($_SESSION["status"] !== "admin") {
     <div class="container">
         <div class="row">
             <div>
-                <h3>Product Information</h3>
+                <h3>รายละเอียดสินค้า</h3>
             </div>
         </div>
-        <a class="btn btn-success btn-round" href="product_add.php"><i class="now-ui-icons ui-1_simple-add"></i> Add Product</a>
+        <a class="btn btn-success btn-round" href="product_add.php"><i class="now-ui-icons ui-1_simple-add"></i> เพิ่มสินค้า </a>
         <br>
 
         <?php
@@ -72,15 +72,15 @@ if ($_SESSION["status"] !== "admin") {
         <br>
         <table id="" class="table table-condensed table-striped">
             <tr>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Description</th>
-                <th>Cost(บาท)</th>
-                <th>Price(บาท)</th>
-                <th>Quantity</th>
-                <th>Category</th>
-                <th>Supplier</th>
-                <th>Option</th>
+                <th>รหัสสินค้า</th>
+                <th>ชื่อสินค้า</th>
+                <th>รายละเอียดสินค้า</th>
+                <th>ราคาต้นทุน(บาท)</th>
+                <th>ราคาขาย(บาท)</th>
+                <th>จำนวนสินค้าคงเหลือ</th>
+                <th>ประเภทสินค้า</th>
+                <th>ผู้ผลิต</th>
+                <th>ตัวเลือก</th>
             </tr>
             <?php
             if ($result) {
@@ -111,8 +111,8 @@ if ($_SESSION["status"] !== "admin") {
                     //         <a class="btn btn-outline-danger shadow-sm btn-md" href="product_delete.php?prod_id='.$res['prod_id'].'" >Delete</a>
                     //     </tr>';
                     echo "<td class=\"text-center\">
-                            <a class=\"btn btn-outline-warning shadow-sm btn-md mb-2\" href=\"product_update.php?prod_id=$res[prod_id]\" >Edit</a>
-                            <a class=\"btn btn-outline-danger shadow-sm btn-md\" href=\"product_delete.php?prod_id=$res[prod_id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a>
+                            <a class=\"btn btn-outline-warning shadow-sm btn-md mb-2\" href=\"product_update.php?prod_id=$res[prod_id]\" >แก้ไข</a>
+                            <a class=\"btn btn-outline-danger shadow-sm btn-md\" href=\"product_delete.php?prod_id=$res[prod_id]\" onClick=\"return confirm('Are you sure you want to delete?')\">ลบ</a>
                         </tr>";
                 }
             } ?>
