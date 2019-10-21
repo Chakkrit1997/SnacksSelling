@@ -75,8 +75,8 @@ if ($_SESSION["status"] !== "admin") {
                 <th>Product ID</th>
                 <th>Product Name</th>
                 <th>Description</th>
-                <th>Cost(Php)</th>
-                <th>Price(Php)</th>
+                <th>Cost(บาท)</th>
+                <th>Price(บาท)</th>
                 <th>Quantity</th>
                 <th>Category</th>
                 <th>Supplier</th>

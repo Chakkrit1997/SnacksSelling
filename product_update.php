@@ -44,6 +44,7 @@ if ($_SESSION["status"] !== "admin") {
                 $prod_qty = $_POST['prod_qty'];
                 $prod_cost = $_POST['prod_cost'];
                 $prod_price = $_POST['prod_price'];
+                $category = $_POST['category'];
 
                 // move_uploaded_file($_FILES["prod_pic1"]["tmp_name"], "uploads/" . $_FILES["prod_pic1"]["name"]);
                 // $prod_pic1 = $_FILES["prod_pic1"]["name"];
@@ -68,10 +69,9 @@ if ($_SESSION["status"] !== "admin") {
                     if (empty($prod_price)) {
                         echo "<font color='red'>Product price field is empty!</font><br/>";
                     }
-
                 } else {
 
-                    $query = "UPDATE products SET prod_name='$prod_name', prod_desc='$prod_desc', 
+                    $query = "UPDATE products SET prod_name='$prod_name', prod_desc='$prod_desc', category='$category',
                                 prod_qty='$prod_qty', prod_cost='$prod_cost', prod_price='$prod_price' WHERE prod_id=$id";
 
                     $result = mysqli_query($dbcon, $query) or die(mysqli_connect_error($dbcon));
@@ -132,6 +132,18 @@ if ($_SESSION["status"] !== "admin") {
                             <input type="text" class="form-control" id="prod_price" name="prod_price" placeholder="" value="<?php echo $prod_price; ?>" />
                             <label for="prod_qty">Quantity:</label>
                             <input type="text" class="form-control" id="prod_qty" name="prod_qty" placeholder="" value="<?php echo $prod_qty; ?>" />
+                            <label for="category">Category:</label>
+                            <div class="input-group">
+                                <select class="form-control" id="category" name="category" required>
+                                    <?php
+                                    include('db.php');
+                                    $query = mysqli_query($dbcon, "SELECT cat_title FROM categories ORDER BY cat_title ASC") or die(mysqli_connect_error());
+                                    while ($row = mysqli_fetch_array($query)) {
+                                        ?>
+                                        <option value="<?php echo $row['cat_title']; ?>"><?php echo $row['cat_title']; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
 
                         </div>
                         <br>

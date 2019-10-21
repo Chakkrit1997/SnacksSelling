@@ -61,39 +61,34 @@ if ($_SESSION["status"] !== "user") {
               ช้อปปิ้งออนไลน์ ขนมราคาพิเศษ ที่ Snacks Selling Online โปรโมชั่นพิเศษ พร้อมบริการจัดส่งสินค้า
             </p>
           </div>
-          <br>
         </div>
-        <br>
-
         <hr color="orange">
 
-        <div class="tab-pane  active" id="">
-          <ul class="thumbnails">
+        <div class="container">
+          <div class="row">
             <?php
             $query = "SELECT * FROM products ORDER BY prod_id ASC";
             $result = mysqli_query($dbcon, $query);
             while ($res = mysqli_fetch_array($result)) {
               $prod_id = $res['prod_id'];
-
               ?>
-              <div class="row-sm-3">
+              <div class="col-sm-3">
                 <div class="thumbnail">
                   <?php if ($res['prod_pic1'] != "") : ?>
                     <img src="uploads/<?php echo $res['prod_pic1']; ?> " width="300px" height="300px">
                   <?php else : ?>
-                    <img src="../uploads/default.png" width="300px" height="200px">
+                    <img src="uploads/default.png" width="300px" height="200px">
                   <?php endif; ?>
-                  <div class="caption">
-                    <h5><b><?php echo $res['prod_name']; ?></b></h5>
+
+                  <div class="caption text-center">
+                    <h5><b><?php echo $res['prod_name']; ?></b> <b><?php echo $res['prod_price']; ?></b></h5>
                     <h6><a class="btn btn-success btn-round" title="Click for more details!" href="user_product_detail.php?prod_id=<?php echo $res['prod_id']; ?>"><i class="now-ui-icons gestures_tap-01"></i>View</a>
-                      <div class="pull-right">Php<?php echo $res['prod_price']; ?></div>
-                    </h6>
                   </div>
+
                 </div>
-                <hr color="orange">
               </div>
             <?php } ?>
-          </ul>
+          </div>
         </div>
       </div>
     </div>

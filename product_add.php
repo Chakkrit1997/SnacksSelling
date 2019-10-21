@@ -2,7 +2,7 @@
 include 'db.php';
 session_start();
 if ($_SESSION["status"] !== "admin") {
-  header("Location: user_login_page.php");
+    header("Location: user_login_page.php");
 }
 ?>
 
@@ -43,6 +43,7 @@ if ($_SESSION["status"] !== "admin") {
                 $prod_desc = $_POST['prod_desc'];
                 $prod_qty = $_POST['prod_qty'];
                 $prod_cost = $_POST['prod_cost'];
+                $category = $_POST['category'];
                 $prod_price = $_POST['prod_price'];
 
                 move_uploaded_file($_FILES["prod_pic1"]["tmp_name"], "uploads/" . $_FILES["prod_pic1"]["name"]);
@@ -75,13 +76,13 @@ if ($_SESSION["status"] !== "admin") {
                     }
                 } else {
 
-                    $query = "INSERT INTO products (prod_name, prod_desc, prod_qty, prod_cost, prod_price, prod_pic1) 
-         VALUES ('$prod_name','$prod_desc','$prod_qty','$prod_cost','$prod_price','$prod_pic1')";
+                    $query = "INSERT INTO products (prod_name, prod_desc, prod_qty, prod_cost, prod_price, prod_pic1, category) 
+         VALUES ('$prod_name','$prod_desc','$prod_qty','$prod_cost','$prod_price','$prod_pic1', '$category')";
 
                     $result = mysqli_query($dbcon, $query);
 
                     if ($result) {
-                        
+
                         $prod_name = $_POST['prod_name'];
                         $prod_qty = $_POST['prod_qty'];
 
@@ -134,6 +135,20 @@ if ($_SESSION["status"] !== "admin") {
                             <input type="text" class="form-control" id="prod_price" name="prod_price" placeholder="" />
                             <label for="prod_qty">Quantity:</label>
                             <input type="text" class="form-control" id="prod_qty" name="prod_qty" placeholder="" />
+                            <label for="category">Category:</label>
+                            <div class="input-group">
+                                <select class="form-control" id="category" name="category" required>
+                                    <?php
+                                    include('db.php');
+                                    $query = mysqli_query($dbcon, "SELECT cat_title FROM categories ORDER BY cat_title ASC") or die(mysqli_error($dbcon));
+                                    while ($row = mysqli_fetch_array($query)) {
+                                        ?>
+                                        <option value="<?php echo $row['cat_title']; ?>"><?php echo $row['cat_title']; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+
+                            
                             <label for="prod_pic1">Picture 1 :</label>
                             <div class="input-group">
                                 <input type="file" class="form-control" id="prod_pic1" name="prod_pic1">
