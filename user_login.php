@@ -34,7 +34,7 @@ if ($result_user->num_rows == 1) {
     
     echo "<script type='text/javascript'>";
     echo "alert('ล็อคอินไม่สำเร็จ ชื่อผู้ใช้ หรือ รหัสผ่าน ไม่ถูกต้อง!');";
-    echo "window.location = 'form.php'; ";
+    echo "window.location = 'user_login_page.php'; ";
     echo "</script>";
         //echo "รหัสผู้ใช้หรือหรัสผ่านไม่ถูกต้อง";
 }
