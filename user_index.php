@@ -39,7 +39,7 @@ if ($_SESSION["status"] !== "user") {
         <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="ตระกร้าสินค้า" onclick="window.location.href='user_cart.php'">
       </li>
       <li>
-        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="สถานะการสั่งซื้อ" onclick="window.location.href='admin_order_detail.php'">
+        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="สถานะการสั่งซื้อ" onclick="window.location.href='user_check.php'">
       </li>
       <li class="nav-item">
         <input type="button" class="btn btn-outline-danger float-right mx-3 btn-sm" value="ออกจากระบบ" onclick="window.location.href='logout.php'">
@@ -98,9 +98,6 @@ if ($_SESSION["status"] !== "user") {
   <footer class="footer" data-background-color="black">
     <div class="container">
       <nav>
-        <ul>
-          <li>Brought To You By <a href="https://code-projects.org/">code-projects</a> | Thanks to Billy Revellame</li>
-        </ul>
       </nav>
       <div class="copyright">
         &copy;

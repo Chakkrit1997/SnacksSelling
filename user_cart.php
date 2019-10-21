@@ -37,7 +37,7 @@ if ($_SESSION["status"] !== "user") {
                       $row = mysqli_fetch_array($query);
                       $cid = $row['login_id'];
                       ?>รายการสินค้าของ
-                      <?echo $row['firstname'];?>
+                      <?echo $_SESSION['username'];?>
     </h2>
     <a class="btn btn-primary btn-round" href="user_index.php"><i class="now-ui-icons shopping_basket"></i> &nbsp ซื้อสินค้าเพิ่ม</a>
     <hr color="orange">

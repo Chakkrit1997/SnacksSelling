@@ -121,17 +121,22 @@ if ($_SESSION["status"] !== "user") {
 
 
 
-            echo '********* หมายเลขคำสั่งซื้อของคุณ : ' . $track_num . ' | ';
-            echo 'ทั้งหมด : ' . $total . ' บาท | ';
-            echo 'ส่งไปที่อยู่ : ' . $ship_add . ' *********';
+            echo '********* หมายเลขคำสั่งซื้อของคุณ : <b>' . $track_num . '</b> ***********<br> ';
+            echo '********* ทั้งหมด : ' . $total . ' บาท **************<br> ';
+            echo '********* เมื่อวันที่ : ' . $date . ' **************<br> ';
+            echo '********* ส่งไปที่อยู่ : ' . $ship_add . ' **************<br>';
 
 
             $query9 = "INSERT INTO order2 (login_id, track_num, firstname, lastname, email , shipping_add, order_date, statuss, totalprice) VALUES ('$user_id','$track_num','$firstname','$lastname','$email','$ship_add','$date','รอจัดส่ง','$total')";
             mysqli_query($dbcon, $query9) or die(mysqli_error($dbcon));
 
             mysqli_query($dbcon, "UPDATE order_details SET track_num= $track_num WHERE login_id='$user_id' AND order_id=''") or die(mysqli_connect_error());
+            mysqli_query($dbcon, "UPDATE order_details SET statuss = 'รอจัดส่ง' WHERE login_id='$user_id' AND order_id=''") or die(mysqli_connect_error());
             mysqli_query($dbcon, "UPDATE order_details SET order_id = order_id+1 WHERE login_id='$user_id' AND order_id=''") or die(mysqli_connect_error());
             
+            mysqli_query($dbcon, "DELETE FROM `order2` WHERE `order2`.`track_num` = $user_id") or die(mysqli_connect_error());
+
+
             //mysqli_query($dbcon, "INSERT INTO order_details(track_num) VALUES ('$track_num') WHERE login_id='$user_id' AND order_id=''") or die(mysqli_connect_error());
             //mysqli_query($dbcon, "UPDATE order_details SET total_qty =$prod_qty - $qty WHERE prod_id ='$prod_id' AND total_qty='' ");
           }
@@ -140,11 +145,13 @@ if ($_SESSION["status"] !== "user") {
 
           <hr color="orange">
           <br><br>
-          <h3>Payment type will be a <b>Cash On Delivery</b></h3>
-          <h3>Delivery process time, minimum of three(3) days and maximum of five(5) working days.</h3><br>
-          <h5>Electricks Technology, Inc.</h5>
+          <h3>ประเภทการชำระเงินจะเป็นแบบ <b>ชำระเงินปลายทาง</b></h3>
+          <h3>เวลาดำเนินการจัดส่งขั้นต่ำ 3 วัน และช้าสุด 7 วันทำการ</h3>
+          <h2>ขอบคุณที่ใช้บริการ</h2>
+          <br>
+          <h5>Snacks Sellings, Inc.</h5>
 
-          <button type="button" class="btn btn-warning btn-round" onclick="window.print()"><span class="now-ui-icons ui-1_check"></span> Print</button>
+          <!-- <button type="button" class="btn btn-warning btn-round" onclick="window.print()"><span class="now-ui-icons ui-1_check"></span> Print</button> -->
           <a href="user_index.php"><button type="button" class="btn btn-success btn-round"><span class="now-ui-icons ui-1_check"></span> Back to Homepage</button></a>
 
 

@@ -118,8 +118,4 @@ if ($_SESSION["status"] !== "admin") {
             } ?>
         </table>
     </div>
-    </div>
-    </div>
-    </div>
-
 </body>
