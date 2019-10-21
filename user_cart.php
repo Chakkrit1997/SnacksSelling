@@ -36,10 +36,10 @@ if ($_SESSION["status"] !== "user") {
                       $query = mysqli_query($dbcon, "SELECT * FROM `tb_login` WHERE login_id='" . $_SESSION['id'] . "'");
                       $row = mysqli_fetch_array($query);
                       $cid = $row['login_id'];
-                      echo $row['firstname'];
-                      ?>'s Shopping Cart
+                      ?>รายการสินค้าของ
+                      <?echo $row['firstname'];?>
     </h2>
-    <a class="btn btn-primary btn-round" href="user_index.php"><i class="now-ui-icons shopping_basket"></i> &nbsp Shop more items</a>
+    <a class="btn btn-primary btn-round" href="user_index.php"><i class="now-ui-icons shopping_basket"></i> &nbsp ซื้อสินค้าเพิ่ม</a>
     <hr color="orange">
 
     <div class="col-md-12">
@@ -56,16 +56,16 @@ if ($_SESSION["status"] !== "user") {
           ?>
 
           <form method="post" action="user_payment.php">
-            <h5>[ <small><?php echo $count2; ?> </small>] types of item.</h5>
+            <h5>[ <small><?php echo $count2; ?> </small>] จำนวนสินค้า</h5>
             <table class="table table-condensed table-bordered">
               <thead>
                 <tr>
-                  <th>Product</th>
-                  <th>Description</th>
-                  <th width="100">Quantity</th>
-                  <th width="110">Price(บาท)</th>
-                  <th width="110">Total(บาท)</th>
-                  <th width="80">Option</th>
+                  <th>สินค้า</th>
+                  <th>รายละเอียดสินค้า</th>
+                  <th width="100">จำนวน</th>
+                  <th width="110">ราคา(บาท)</th>
+                  <th width="110">รวม(บาท)</th>
+                  <th width="80">ตัวเลือก</th>
                 </tr>
               </thead>
               <tbody>
@@ -98,7 +98,7 @@ if ($_SESSION["status"] !== "user") {
                   <tr>
                     <td></td>
                     <td></td>
-                    <td colspan="2" class="text-right"><b>Total Price</b></td>
+                    <td colspan="2" class="text-right"><b>รวมทั้งหมด</b></td>
                     <td class="label label-important"> <strong>
                         <?php
                         $result5 = mysqli_query($dbcon, "SELECT sum(total) FROM order_details WHERE login_id='$user_id' and order_id=''");
@@ -129,7 +129,7 @@ if ($_SESSION["status"] !== "user") {
               ?>
 
               <button type="submit" id="" onclick="return confirm('Are you sure you want to Checkout?')" name="submit" class="btn btn-success btn-round pull-right" data-toggle="modal" data-target="#myModal">
-                <i class="now-ui-icons shopping_bag-16"></i> Check Out</button>
+                <i class="now-ui-icons shopping_bag-16"></i> สั่งซื้อ</button>
 
             <?php
             }
@@ -141,17 +141,17 @@ if ($_SESSION["status"] !== "user") {
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Shipping Address:</h4>
+                    <h4 class="modal-title" id="myModalLabel">ที่อยู่การจัดส่งสินค้า:</h4>
                   </div>
                   <div class="modal-body">
 
                     <div class="form-group">
-                      <input type="text" class="form-control" name="shipaddress" placeholder="Complete Address For Delivery Purpose." required />
+                      <input type="text" class="form-control" name="shipaddress" placeholder="ที่อยู่ในการจัดส่งสินค้าของคุณ." required />
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-round" data-dismiss="modal">Close</button>
-                    <a><button type="submit" name="submit" class="btn btn-success btn-round"> Submit</button></a>
+                    <button type="button" class="btn btn-primary btn-round" data-dismiss="modal"> ยกเลิก</button>
+                    <a><button type="submit" name="submit" class="btn btn-success btn-round"> ตกลง</button></a>
                   </div>
                 </div>
               </div>

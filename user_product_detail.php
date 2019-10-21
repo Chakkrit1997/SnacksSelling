@@ -161,7 +161,7 @@ while ($res = mysqli_fetch_array($result)) {
                                         <div class="form group">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                <h4 class="modal-title" id="myModalLabel">Enter Quantity:</h4>
+                                                <h4 class="modal-title" id="myModalLabel">.จำนวนสินค้า:</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="input-append">
@@ -179,8 +179,8 @@ while ($res = mysqli_fetch_array($result)) {
 
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary btn-round" data-dismiss="modal">Close</button>
-                                                <a><button type="submit" name="submit" class="btn btn-success btn-round">Order</button></a>
+                                                <button type="button" class="btn btn-primary btn-round" data-dismiss="modal">ยกเลิก</button>
+                                                <a><button type="submit" name="submit" class="btn btn-success btn-round">เพิ่ม</button></a>
                                             </div>
                                         </div>
                                     </form>
