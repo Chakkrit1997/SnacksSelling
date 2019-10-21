@@ -33,23 +33,23 @@
         <!--  Start Login Form-->
         <form class="mt-2 myForm" method="post" action="login.php">
             <div class="text-center">
-                <h2 class="mt-2 font-weight-normal">Customer Login</h2>
+                <h2 class="mt-2 font-weight-normal">เข้าสู่ระบบ ลูกค้า</h2>
             </div>
             <div class="form-group mt-2">
-                <input type="text" class="form-control" name="username" id="username" placeholder="Username" required autofocus>
+                <input type="text" class="form-control" name="username" id="username" placeholder="ชื่อผู้ใช้" required autofocus>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                <input type="password" class="form-control" name="password" id="password" placeholder="รหัสผ่าน" required>
             </div>
 
             <div class="form-group">
-                <button type="submit" name="login" class="mt-2 btn btn-primary btn-block">Login</button>
+                <button type="submit" name="login" class="mt-2 btn btn-primary btn-block">เข้าสู่ระบบ</button>
             </div>
 
             <!-- Button trigger modal -->
             <div class="text-center ">
                 <button type="button" class="mt-2 btn btn-danger btn-block" data-toggle="modal" data-target="#myModal">
-                    Register
+                    ลงทะเบียน
                 </button>
             </div>
         </form>
@@ -114,7 +114,7 @@
                     <!--  End Register Form-->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
                 </div>
             </div>
         </div>
