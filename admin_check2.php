@@ -123,7 +123,7 @@ if ($_SESSION["status"] !== "admin") {
                         <td> <img width="150" height="150" src="uploads/<?php echo $res['prod_pic1']; ?>" alt="" /> </td>
                         <td><b><?php echo $res['prod_name']; ?></b><br><br>
                             <?php echo $res['prod_desc'];
-                            ?>
+                                    ?>
                         </td>
                         <td> <?php echo $res['prod_qty']; ?> </td>
                         <td> <?php echo $res['prod_price'] ?> </td>

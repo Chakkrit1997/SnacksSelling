@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="#" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"  id="bootstrap-css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" id="bootstrap-css">
 
     <!-- Google Fonts CSS -->
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
@@ -54,16 +54,16 @@
             </div> -->
         </form>
         <div class="text-center mt-2">
-        <footer class="footer">
-            <div class="container">
-                <div class="copyright align-right">
-                    <a href="user_login_page.php">&copy;
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script>,</a> Designed and Coded by Chakkrit Tha-aphai, Pongsakorn Pitakkanitkul, Wuttipong Sootlek, Boonrit Duanghirunphuckdee
+            <footer class="footer">
+                <div class="container">
+                    <div class="copyright align-right">
+                        <a href="user_login_page.php">&copy;
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>,</a> Designed and Coded by Chakkrit Tha-aphai, Pongsakorn Pitakkanitkul, Wuttipong Sootlek, Boonrit Duanghirunphuckdee
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
         </div>
         <!--  End Login Form-->
     </div>
@@ -126,24 +126,24 @@
     <script src="src/js/bootstrap.min.js"></script>
 
     <script>
-      $(document).ready(function(){
-        // Set trigger and container variables
-        var trigger = $('#nav ul li a'),
-            container = $('#content');
-        
-        // Fire on click
-        trigger.on('click', function(){
-          // Set $this for re-use. Set target from data attribute
-          var $this = $(this),
-            target = $this.data('target');       
-          
-          // Load target page into container
-          container.load(target + '.php');
-          
-          // Stop normal link behavior
-          return false;
+        $(document).ready(function() {
+            // Set trigger and container variables
+            var trigger = $('#nav ul li a'),
+                container = $('#content');
+
+            // Fire on click
+            trigger.on('click', function() {
+                // Set $this for re-use. Set target from data attribute
+                var $this = $(this),
+                    target = $this.data('target');
+
+                // Load target page into container
+                container.load(target + '.php');
+
+                // Stop normal link behavior
+                return false;
+            });
         });
-      });
     </script>
 
 

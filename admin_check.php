@@ -78,7 +78,7 @@ if ($_SESSION["status"] !== "admin") {
                 <th>ชื่อ นามสกุล</th>
                 <th>เวลา</th>
                 <th>สถานะการสั่งซื้อ</th>
-                
+
             </tr>
             <?php
             if ($result) {
@@ -87,11 +87,11 @@ if ($_SESSION["status"] !== "admin") {
                     echo "<td>" . $res['order_id'] . "</td>";
                     echo "<td>" . $res['track_num'] . "</td>";
                     echo "<td>" . $res['shipping_add'] . "</td>";
-                    echo "<td>" . $res['firstname'] ."  ". $res['lastname'] . "</td>";
+                    echo "<td>" . $res['firstname'] . "  " . $res['lastname'] . "</td>";
                     echo "<td>" . $res['order_date'] . "</td>";
                     echo "<td>" . $res['statuss'] . "<a class=\"btn btn-outline-primary shadow-sm btn-md ml-2\" href=\"admin_check2.php?track_num=$res[track_num]\" >ดู</a></td>";
                     $prod_qty = $res['order_id'];
-                    
+
                     // echo "<td>" . $res['category'] . "</td>";
                     // echo "<td>" . $res['supplier'] . "</td>";
                     // echo "<td class=\"text-center\">
@@ -102,7 +102,7 @@ if ($_SESSION["status"] !== "admin") {
             }
 
             ?>
-            
+
         </table>
 
 

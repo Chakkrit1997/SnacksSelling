@@ -41,7 +41,7 @@ if ($_SESSION["status"] !== "admin") {
         <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="รายละเอียดสินค้า" onclick="window.location.href='admin_productinfo.php'">
       </li>
       <li>
-      <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="รายการสั่งซื้อลูกค้า" onclick="window.location.href='admin_check.php'">
+        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="รายการสั่งซื้อลูกค้า" onclick="window.location.href='admin_check.php'">
       </li>
       <li>
         <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="ประวัติการเพิ่มรายการสินค้า" onclick="window.location.href='admin_log.php'">
@@ -85,9 +85,9 @@ if ($_SESSION["status"] !== "admin") {
                     <img src="uploads/default.png" width="300px" height="200px">
                   <?php endif; ?>
 
-                  
+
                   <div class="caption text-center">
-                    <h5><b><?php echo $res['prod_name'] ; ?></b> <b><?php echo "$res[prod_price] บาท" ; ?></b></h5>
+                    <h5><b><?php echo $res['prod_name']; ?></b> <b><?php echo "$res[prod_price] บาท"; ?></b></h5>
                   </div>
                 </div>
               </div>

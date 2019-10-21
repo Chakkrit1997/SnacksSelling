@@ -39,7 +39,7 @@ if ($_SESSION["status"] !== "admin") {
                 <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="รายละเอียดสินค้า" onclick="window.location.href='admin_productinfo.php'">
             </li>
             <li>
-            <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="รายการสั่งซื้อลูกค้า" onclick="window.location.href='admin_check.php'">
+                <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="รายการสั่งซื้อลูกค้า" onclick="window.location.href='admin_check.php'">
             </li>
             <li>
                 <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="ประวัติการเพิ่มรายการสินค้า" onclick="window.location.href='admin_log.php'">
@@ -56,7 +56,7 @@ if ($_SESSION["status"] !== "admin") {
             <div class="row collections">
                 <br>
                 <div class="mt-2">
-                    <h3 >ประวัติการเพิ่มรายการสินค้า</h3>
+                    <h3>ประวัติการเพิ่มรายการสินค้า</h3>
                 </div>
                 <?php
                 include('db.php');
