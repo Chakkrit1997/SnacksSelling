@@ -58,7 +58,7 @@ if ($_SESSION["status"] !== "user") {
           <h2 class="title">รายการสินค้า</h2>
           <div class="typography-line">
             <p>
-              ช้อปปิ้งออนไลน์ ขนมราคาพิเศษ ที่ Snacks Selling Online โปรโมชั่นพิเศษ พร้อมบริการจัดส่งสินค้า
+              <h5>ช้อปปิ้งออนไลน์ ขนมราคาพิเศษ ที่ Snacks Selling Online โปรโมชั่นพิเศษ พร้อมบริการจัดส่งสินค้า</h5>
             </p>
           </div>
         </div>
@@ -81,8 +81,7 @@ if ($_SESSION["status"] !== "user") {
                   <?php endif; ?>
 
                   <div class="caption text-center">
-                    <h5><b><?php echo $res['prod_name']; ?></b> <b><?php echo $res['prod_price']; ?></b></h5>
-                    <h6><a class="btn btn-success btn-round" title="Click for more details!" href="user_product_detail.php?prod_id=<?php echo $res['prod_id']; ?>"><i class="now-ui-icons gestures_tap-01"></i>View</a>
+                    <h5><a class="btn btn-success btn-round mr-2" title="Click for more details!" href="user_product_detail.php?prod_id=<?php echo $res['prod_id']; ?>"><i class="now-ui-icons gestures_tap-01"></i>View</a><b><?php echo $res['prod_name']; ?></b> <b><?php echo $res['prod_price']; ?></b></h5>
                   </div>
 
                 </div>
