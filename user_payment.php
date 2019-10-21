@@ -110,14 +110,14 @@ if ($_SESSION["status"] !== "user") {
             $track_num = $user_id . $tp;
             $shipaddress = $_POST['shipaddress'];
             $ship_add = $shipaddress;
-            echo 'login_id = ' . $user_id . '<br>';
-            echo 'track_num = ' . $track_num . '<br>';
-            echo 'ชื่อ = ' . $firstname . '<br>';
-            echo 'นามสกุล = ' . $lastname . '<br>';
-            echo 'อีเมลล์ = ' . $email . '<br>';
-            echo 'shipping_add = ' . $ship_add . '<br>';
-            echo 'order_date = ' . $date . '<br>';
-            echo 'totalprice = ' . $total . '<br>';
+            // echo 'login_id = ' . $user_id . '<br>';
+            // echo 'track_num = ' . $track_num . '<br>';
+            // echo 'ชื่อ = ' . $firstname . '<br>';
+            // echo 'นามสกุล = ' . $lastname . '<br>';
+            // echo 'อีเมลล์ = ' . $email . '<br>';
+            // echo 'shipping_add = ' . $ship_add . '<br>';
+            // echo 'order_date = ' . $date . '<br>';
+            // echo 'totalprice = ' . $total . '<br>';
 
 
 
