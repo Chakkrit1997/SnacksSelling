@@ -43,7 +43,7 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" name="login" class="mt-2 btn btn-primary btn-block">เข้าสู่ระบบ1</button>
+                <button type="submit" name="login" class="mt-2 btn btn-primary btn-block">เข้าสู่ระบบ</button>
             </div>
 
             <!-- Button trigger modal -->

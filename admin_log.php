@@ -33,20 +33,20 @@ if ($_SESSION["status"] !== "admin") {
     <div class="container">
         <ul class="nav justify-content-center mt-5">
             <li>
-                <input type="button" class="btn btn-outline-success mx-3 btn-sm" value="Product" onclick="window.location.href='admin_index.php'">
+                <input type="button" class="btn btn-outline-success mx-3 btn-sm" value="รายการสินค้า" onclick="window.location.href='admin_index.php'">
             </li>
             <li>
-                <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="Product Info" onclick="window.location.href='admin_productinfo.php'">
+                <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="รายละเอียดสินค้า" onclick="window.location.href='admin_productinfo.php'">
             </li>
             <li>
-                <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="User Order Detail" onclick="window.location.href='admin_order_detail.php'">
+                <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="รายการสั่งซื้อลูกค้า" onclick="window.location.href='admin_order_detail.php'">
             </li>
             <li>
-                <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="Admin Logs Information" onclick="window.location.href='admin_log.php'">
+                <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="ประวัติการเพิ่มรายการสินค้า" onclick="window.location.href='admin_log.php'">
             </li>
 
             <li class="nav-item">
-                <input type="button" class="btn btn-outline-danger float-right mx-3 btn-sm" value="Logout" onclick="window.location.href='logout.php'">
+                <input type="button" class="btn btn-outline-danger float-right mx-3 btn-sm" value="ออกจากระบบ" onclick="window.location.href='logout.php'">
             </li>
         </ul>
     </div>
@@ -56,18 +56,13 @@ if ($_SESSION["status"] !== "admin") {
             <div class="row collections">
                 <br>
                 <div class="mt-2">
-                    <h3 >Admin Logs Information</h3>
+                    <h3 >ประวัติการเพิ่มรายการสินค้า</h3>
                 </div>
                 <?php
                 include('db.php');
                 ?>
                 <br><br>
                 <table id="" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>--------------------Start of Log--------------------</th>
-                        </tr>
-                    </thead>
                     <?php
                     $query = mysqli_query($dbcon, "SELECT * FROM logs ORDER BY date DESC") or die(mysqli_connect_error());
                     while ($row = mysqli_fetch_array($query)) {
@@ -79,11 +74,6 @@ if ($_SESSION["status"] !== "admin") {
                     }
                     ?>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>--------------------End of Log--------------------</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>

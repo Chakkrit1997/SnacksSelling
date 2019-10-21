@@ -35,20 +35,20 @@ if ($_SESSION["status"] !== "admin") {
   <div class="container">
     <ul class="nav justify-content-center mt-5">
       <li>
-        <input type="button" class="btn btn-outline-success mx-3 btn-sm" value="Product" onclick="window.location.href='admin_index.php'">
+        <input type="button" class="btn btn-outline-success mx-3 btn-sm" value="รายการสินค้า" onclick="window.location.href='admin_index.php'">
       </li>
       <li>
-        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="Product Info" onclick="window.location.href='admin_productinfo.php'">
+        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="รายละเอียดสินค้า" onclick="window.location.href='admin_productinfo.php'">
       </li>
       <li>
-        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="User Order Detail" onclick="window.location.href='admin_order_detail.php'">
+        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="รายการสั่งซื้อลูกค้า" onclick="window.location.href='admin_order_detail.php'">
       </li>
       <li>
-        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="Admin Logs Information" onclick="window.location.href='admin_log.php'">
+        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="ประวัติการเพิ่มรายการสินค้า" onclick="window.location.href='admin_log.php'">
       </li>
 
       <li class="nav-item">
-        <input type="button" class="btn btn-outline-danger float-right mx-3 btn-sm" value="Logout" onclick="window.location.href='logout.php'">
+        <input type="button" class="btn btn-outline-danger float-right mx-3 btn-sm" value="ออกจากระบบ" onclick="window.location.href='logout.php'">
       </li>
     </ul>
   </div>
@@ -60,7 +60,7 @@ if ($_SESSION["status"] !== "admin") {
       <div class="container">
         <br>
         <div class="col-md-12">
-          <h2 class="title">Products</h2>
+          <h2 class="title">รายการสินค้า</h2>
           <div class="typography-line">
             <p>
               ช้อปปิ้งออนไลน์ ขนมราคาพิเศษ ที่ Snacks Selling Online โปรโมชั่นพิเศษ พร้อมบริการจัดส่งสินค้า
