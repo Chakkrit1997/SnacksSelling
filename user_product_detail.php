@@ -72,8 +72,8 @@ while ($res = mysqli_fetch_array($result)) {
 
                 <div class="section" id="carousel">
                     <div class="container">
-                        <h2>Product Details</h2>
-                        <a class="btn btn-primary btn-round" href="user_index.php"><i class="now-ui-icons arrows-1_minimal-left"></i> &nbsp Back to index</a>
+                        <h2>รายละเอียดสินค้า</h2>
+                        <a class="btn btn-primary btn-round" href="user_index.php"><i class="now-ui-icons arrows-1_minimal-left"></i> &nbsp กลับสู่หน้าหลัก</a>
                         <hr color="orange">
                         <div class="col-md-12">
                             <div class="row justify-content-center">
@@ -117,28 +117,28 @@ while ($res = mysqli_fetch_array($result)) {
 
                         <h4><br><br>
 
-                            <ul><b>Product name: </b>
+                            <ul><b>ชื่อสินค้า : </b>
                                 <?php echo $res['prod_name']; ?>
                             </ul>
-                            <ul><b>Description: </b>
+                            <ul><b>รายละเอียดสินค้า : </b>
                                 <?php echo $res['prod_desc']; ?>
                             </ul>
-                            <ul><b>Type: </b>
+                            <ul><b>ประเภท : </b>
                                 <?php echo $res['category']; ?>
                             </ul>
-                            <ul><b>Price: </b>
-                                <?php echo 'Php' . $res['prod_price'] . ''; ?>
+                            <ul><b>ราคา : </b>
+                                <?php echo  $res['prod_price'] . ' บาท'; ?>
                             </ul>
                             <ul>
                                 <?php $prod_qty = $res['prod_qty']; ?>
                                 <?php
                                     if ($prod_qty <= 0) {
                                         ?>
-                                    <span style="color:red;">Product Sold Out!</span>
+                                    <span style="color:red;">สินค้าหมด!</span>
                                 <?php
                                     } else {
                                         ?>
-                                    <b>Items in stock: </b><?php echo $res['prod_qty']; ?>
+                                    <b>สินค้าคงเหลือ : </b><?php echo $res['prod_qty']; ?>
                             </ul>
                         <?php
                             }
@@ -149,7 +149,7 @@ while ($res = mysqli_fetch_array($result)) {
 
                         <!-- Button trigger modal -->
                         <div class="form-group">
-                            <button class="btn btn-success btn-round pull-right" data-toggle="modal" data-target="#myModal">Add To Cart</button>
+                            <button class="btn btn-success btn-round pull-right" data-toggle="modal" data-target="#myModal">เพิ่มลงตระกร้า</button>
                         </div>
 
 

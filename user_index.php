@@ -33,16 +33,16 @@ if ($_SESSION["status"] !== "user") {
   <div class="container">
     <ul class="nav justify-content-center mt-5">
       <li>
-        <input type="button" class="btn btn-outline-success float-right mx-3 btn-sm" value="Product" onclick="window.location.href='user_index.php'">
+        <input type="button" class="btn btn-outline-success float-right mx-3 btn-sm" value="รายการสินค้า" onclick="window.location.href='user_index.php'">
       </li>
       <li>
-        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="Cart" onclick="window.location.href='user_cart.php'">
+        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="ตระกร้าสินค้า" onclick="window.location.href='user_cart.php'">
       </li>
       <li>
-        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="User Order Detail" onclick="window.location.href='admin_order_detail.php'">
+        <input type="button" class="btn btn-outline-primary float-right mx-3 btn-sm" value="สถานะการสั่งซื้อ" onclick="window.location.href='admin_order_detail.php'">
       </li>
       <li class="nav-item">
-        <input type="button" class="btn btn-outline-danger float-right mx-3 btn-sm" value="Logout" onclick="window.location.href='logout.php'">
+        <input type="button" class="btn btn-outline-danger float-right mx-3 btn-sm" value="ออกจากระบบ" onclick="window.location.href='logout.php'">
       </li>
     </ul>
 
@@ -72,7 +72,7 @@ if ($_SESSION["status"] !== "user") {
             while ($res = mysqli_fetch_array($result)) {
               $prod_id = $res['prod_id'];
               ?>
-              <div class="col-sm-3">
+              <div class="col-sm-3 mb-5">
                 <div class="thumbnail">
                   <?php if ($res['prod_pic1'] != "") : ?>
                     <img src="uploads/<?php echo $res['prod_pic1']; ?> " width="300px" height="300px">
@@ -81,7 +81,10 @@ if ($_SESSION["status"] !== "user") {
                   <?php endif; ?>
 
                   <div class="caption text-center">
-                    <h5><a class="btn btn-success btn-round mr-2" title="Click for more details!" href="user_product_detail.php?prod_id=<?php echo $res['prod_id']; ?>"><i class="now-ui-icons gestures_tap-01"></i>View</a><b><?php echo $res['prod_name']; ?></b> <b><?php echo $res['prod_price']; ?></b></h5>
+                    <h5><b><?php echo $res['prod_name']; ?></b> <b><?php echo $res['prod_price']; ?></b></h5>
+                  </div>
+                  <div class="text-center">
+                    <a class="btn btn-success btn-round mr-2" title="Click for more details!" href="user_product_detail.php?prod_id=<?php echo $res['prod_id']; ?>">ดูรายละเอียดสินค้า</a>
                   </div>
 
                 </div>
