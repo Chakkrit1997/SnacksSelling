@@ -65,7 +65,7 @@ if ($_SESSION["status"] !== "admin") {
         if ($action == 'deleted') {
             echo "<div class='alert alert-success'>Record was deleted.</div>";
         }
-        $query = "SELECT * FROM products ORDER BY prod_id ASC";
+        $query = "SELECT * FROM products ORDER BY prod_id DESC";
         $result = mysqli_query($dbcon, $query);
         ?>
         <br>
